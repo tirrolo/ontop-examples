@@ -74,6 +74,8 @@ public class QuestOWLExample {
 		 */
 		QuestPreferences preference = new QuestPreferences();
 		preference.setCurrentValueOf(QuestPreferences.ABOX_MODE, QuestConstants.VIRTUAL);
+		preference.setCurrentValueOf(QuestPreferences.REFORMULATION_TECHNIQUE, QuestConstants.TW);
+		preference.setCurrentValueOf(QuestPreferences.REWRITE, QuestConstants.TRUE);
 
 		/*
 		 * Create the instance of Quest OWL reasoner.
@@ -100,6 +102,7 @@ public class QuestOWLExample {
 				"		 ?z a :Edition; :editionNumber ?edition }";
 
 		try {
+			
 			QuestOWLResultSet rs = st.executeTuple(sparqlQuery);
 			int columnSize = rs.getColumCount();
 			while (rs.nextRow()) {
@@ -108,6 +111,8 @@ public class QuestOWLExample {
 					System.out.print(binding.toString() + ", ");
 				}
 				System.out.print("\n");
+				
+//				TreeWitnessSet tws = TreeWitnessSet.getTreeWitnesses(cc, reasoner);
 			}
 			rs.close();
 
@@ -116,6 +121,7 @@ public class QuestOWLExample {
 			 */
 			QuestOWLStatement qst = (QuestOWLStatement) st;
 			String sqlQuery = qst.getUnfolding(sparqlQuery);
+			System.err.println(qst.getRewriting(sparqlQuery));
 
 			System.out.println();
 			System.out.println("The input SPARQL query:");

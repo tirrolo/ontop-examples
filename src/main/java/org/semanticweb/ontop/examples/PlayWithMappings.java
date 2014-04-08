@@ -104,7 +104,7 @@ public class PlayWithMappings {
 					if( queryParsed.getSelection() == null ){
 						++cntNoJoinsNoWhere; // 430
 						
-						System.out.println(queryParsed.getProjection().getColumnNameList());  // TODO Now, get the projection list, tipo ( so that I can identify the tuple )
+						System.out.println(queryParsed.getProjection().getColumnNameList());  // TODO Now get the projection list, tipo ( so that I can identify the tuple )
 					}
 				}
 				

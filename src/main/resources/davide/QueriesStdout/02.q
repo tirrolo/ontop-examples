@@ -30,7 +30,7 @@ WHERE {
     
 } ORDER BY ?licenceURI
 
-21:18:12.342 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:55.141 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -63,7 +63,7 @@ WHERE {
     
 } ORDER BY ?licenceURI
 
-21:18:12.350 [Thread-7] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:55.144 [Thread-7] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "licenceURI"
@@ -106,7 +106,7 @@ Projection
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence, anonymous)
                Var (name=licenceURI)
 
-21:18:12.352 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(licenceURI,company,date) :- ans2(-anon-1,-anon-2,company,date,licenceURI)
 ans2(-anon-1,-anon-2,company,date,licenceURI) :- ans4(-anon-1,-anon-2,company,date,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 ans4(-anon-1,-anon-2,company,date,licenceURI) :- ans8(-anon-1,-anon-2,company,date,licenceURI), ans9(-anon-1,licenceURI)
@@ -121,54 +121,54 @@ ans33(-anon-2,company) :- http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,compan
 ans17(-anon-1,-anon-2) :- http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)
 ans9(-anon-1,licenceURI) :- http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI)
 
-21:18:12.353 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(licenceURI,company,date) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company), http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2), http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:12.353 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(licenceURI,company,date) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceOperator(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company), http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2), http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([date, licenceURI, company]) EXISTS [loop: {-anon-1}[], loop: {-anon-2}[]]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][], edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][], edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI)][][], edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][]] AND LOOP null
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-2
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI)][][]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][]
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom_EXT IS []
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram -     CQC CONTAINMENT: http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT(x,y) :- ER.A-AUXROLE36(x,y) IN http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT(x,y) :- http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(x,y)
-21:18:12.354 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT IS []
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram -     CQC CONTAINMENT: http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT(x,y) :- ER.A-AUXROLE32(x,y) IN http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT(x,y) :- http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(x,y)
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT IS []
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:55.145 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([date, licenceURI, company]) EXISTS [loop: {-anon-1}[], loop: {-anon-2}[]]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][], edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][], edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI)][][], edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][]] AND LOOP null
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-2
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date)][][]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, -anon-2}[http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2)][][]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI)][][]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-2, company}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)][][]
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom_EXT IS []
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram -     CQC CONTAINMENT: http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT(x,y) :- ER.A-AUXROLE69(x,y) IN http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT(x,y) :- http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(x,y)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany_EXT IS []
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram -     CQC CONTAINMENT: http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT(x,y) :- ER.A-AUXROLE61(x,y) IN http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT(x,y) :- http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(x,y)
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence_EXT IS []
+21:36:55.146 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(licenceURI,company,date) :- GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2), http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)
 CC DEFS
 null
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 3.472 s)
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:55.147 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 2.784 s)
+21:36:55.147 [Thread-7] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(licenceURI,company,date) :- GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateOperatorValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenceOperatorCompany(-anon-1,-anon-2), http://sws.ifi.uio.no/vocab/npd-v2#operatorForLicence(-anon-1,licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-2,company)
 
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:55.147 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:55.147 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t5_2),http://www.w3.org/2000/01/rdf-schema#Literal(t9_3),http://www.w3.org/2001/XMLSchema#dateTime(t2_2)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_2),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_oper_hst(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2), NEQ(t2_2,"9999-12-31T00:00:00"), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), company(t9_3,t10_3,t11_3,t12_3,t6_2,t14_3,t15_3,t16_3,t17_3,t18_3), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), licence(t9_4,t10_4,t11_4,t12_4,t13_4,t14_4,t15_4,t16_4,t17_4,t5_2,t19_4,t20_4,t21_4,t22_4,t23_4), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t9_3)
 
-21:18:12.355 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:55.147 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t5_2),http://www.w3.org/2000/01/rdf-schema#Literal(t9_3),http://www.w3.org/2001/XMLSchema#dateTime(t2_2)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_2),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_oper_hst(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2), NEQ(t2_2,"9999-12-31T00:00:00"), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), company(t9_3,t10_3,t11_3,t12_3,t6_2,t14_3,t15_3,t16_3,t17_3,t18_3), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), licence(t9_4,t10_4,t11_4,t12_4,t13_4,t14_4,t15_4,t16_4,t17_4,t5_2,t19_4,t20_4,t21_4,t22_4,t23_4), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t9_3)
 
-21:18:12.356 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:55.148 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t5_2),http://www.w3.org/2000/01/rdf-schema#Literal(t9_3),http://www.w3.org/2001/XMLSchema#dateTime(t2_2)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_2),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_oper_hst(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2), NEQ("9999-12-31T00:00:00",t2_2), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), company(t9_3,t10_3,t11_3,t12_3,t6_2,t14_3,t15_3,t16_3,t17_3,t18_3), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), licence(t9_4,t10_4,t11_4,t12_4,t13_4,t14_4,t15_4,t16_4,t17_4,t5_2,t19_4,t20_4,t21_4,t22_4,t23_4), IS_NOT_NULL(t5_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t2_2), IS_NOT_NULL(t3_2), IS_NOT_NULL(t6_2), IS_NOT_NULL(t9_3)
 
-21:18:12.356 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:12.356 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:12.357 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:55.148 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:55.148 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:55.149 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT *
 FROM (
 SELECT 
@@ -192,8 +192,8 @@ QVIEW2.`cmpLongName` IS NOT NULL
 ) SUB_QVIEW
 ORDER BY SUB_QVIEW.`licenceURI`
 
-21:18:12.357 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:12.412 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:55.149 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:55.204 [Thread-7] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 <http://sws.ifi.uio.no/data/npd-v2/licence/102103>, "Norsk Agip  AS", "1999-06-04T00:00:00.0"^^xsd:dateTime, 
 <http://sws.ifi.uio.no/data/npd-v2/licence/102131>, "Esso Exploration and Production Norway A/S", "1999-06-04T00:00:00.0"^^xsd:dateTime, 

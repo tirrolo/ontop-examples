@@ -39,11 +39,13 @@ public class DavideExample {
 	 * Please use the pre-bundled H2 server from the above link
 	 * 
 	 */
-	final String owlfile = "src/main/resources/davide/npd-v2-materialized.owl";
-	final String obdafile = "src/main/resources/davide/npd-v2-materialized.obda";
+	final String owlfile = "src/main/resources/davide/npd-v2-ql_a.owl";
+	final String obdafile = "src/main/resources/davide/npd-v2-ql_a.obda";
 
 	public void runQuery() throws Exception {
 
+		Statistics.expensiveStatsOn();
+		
 		/*
 		 * Load the ontology from an external .owl file.
 		 */

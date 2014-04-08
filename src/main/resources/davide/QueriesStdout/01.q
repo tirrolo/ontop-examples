@@ -28,7 +28,7 @@ WHERE {
    FILTER(?date > '1979-12-31T00:00:00')	
 }
 
-21:18:11.432 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:54.421 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -59,7 +59,7 @@ WHERE {
    FILTER(?date > '1979-12-31T00:00:00')	
 }
 
-21:18:11.437 [Thread-6] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:54.430 [Thread-6] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Distinct
    Projection
       ProjectionElemList
@@ -95,7 +95,7 @@ Distinct
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence, anonymous)
                Var (name=licenceURI)
 
-21:18:11.438 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:54.431 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(licenceURI,interest,date) :- ans2(-anon-1,date,interest,licenceURI)
 ans2(-anon-1,date,interest,licenceURI) :- ans4(-anon-1,date,interest,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 ans4(-anon-1,date,interest,licenceURI) :- ans8(-anon-1,date,interest,licenceURI), ans9(-anon-1,licenceURI)
@@ -108,46 +108,46 @@ ans33(-anon-1,date) :- http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(
 ans17(-anon-1,interest) :- http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)
 ans9(-anon-1,licenceURI) :- http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)
 
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:54.431 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(licenceURI,interest,date) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest), http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:54.431 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:54.431 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(licenceURI,interest,date) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(licenceURI), http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicenceLicensee(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest), http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI), GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([date, interest, licenceURI]) EXISTS [loop: {-anon-1}[]]
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][], edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][], edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)][][]] AND LOOP null
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:11.439 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][]
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][]
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)][][]
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest_EXT IS []
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([date, interest, licenceURI]) EXISTS [loop: {-anon-1}[]]
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][], edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][], edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)][][]] AND LOOP null
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, date}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date)][][]
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, interest}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest)][][]
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licenceURI}[http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)][][]
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest_EXT IS []
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(licenceURI,interest,date) :- GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest), http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)
 CC DEFS
 null
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 3.471 s)
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.000 s (total 2.783 s)
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(licenceURI,interest,date) :- GT(date,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenseeValidFrom(-anon-1,date), http://sws.ifi.uio.no/vocab/npd-v2#licenseeInterest(-anon-1,interest), http://sws.ifi.uio.no/vocab/npd-v2#licenseeForLicence(-anon-1,licenceURI)
 
-21:18:11.440 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:11.441 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:54.432 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:54.433 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t9_1),http://www.w3.org/2001/XMLSchema#decimal(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t2_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_licensee_hst(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1), NEQ(t2_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t5_1), licence(t13_4,t14_4,t15_4,t16_4,t17_4,t18_4,t19_4,t20_4,t21_4,t9_1,t23_4,t24_4,t25_4,t26_4,t27_4), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1)
 
-21:18:11.441 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:54.433 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t9_1),http://www.w3.org/2001/XMLSchema#decimal(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t2_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_licensee_hst(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1), NEQ(t2_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t5_1), licence(t13_4,t14_4,t15_4,t16_4,t17_4,t18_4,t19_4,t20_4,t21_4,t9_1,t23_4,t24_4,t25_4,t26_4,t27_4), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1)
 
-21:18:11.441 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:54.433 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/licence/{}",t9_1),http://www.w3.org/2001/XMLSchema#decimal(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t2_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t2_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence_licensee_hst(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1), NEQ("9999-12-31T00:00:00",t2_1), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t5_1), licence(t13_4,t14_4,t15_4,t16_4,t17_4,t18_4,t19_4,t20_4,t21_4,t9_1,t23_4,t24_4,t25_4,t26_4,t27_4), IS_NOT_NULL(t9_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1)
 
-21:18:11.441 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:11.442 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:11.442 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:54.433 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:54.433 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:54.435 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT *
 FROM (
 SELECT DISTINCT 
@@ -168,8 +168,8 @@ QVIEW1.`prlLicenseeInterest` IS NOT NULL AND
 (QVIEW1.`prlNpdidLicence` = QVIEW2.`prlNpdidLicence`)
 ) SUB_QVIEW
 
-21:18:11.442 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:11.801 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:54.435 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:54.710 [Thread-6] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 <http://sws.ifi.uio.no/data/npd-v2/licence/20756>, "100.000000"^^xsd:decimal, "2004-10-01T00:00:00.0"^^xsd:dateTime, 
 <http://sws.ifi.uio.no/data/npd-v2/licence/917266>, "50.000000"^^xsd:decimal, "1999-12-15T00:00:00.0"^^xsd:dateTime, 

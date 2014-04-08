@@ -33,7 +33,7 @@ WHERE {
    FILTER(?gas < 100)
 } 
 
-21:18:12.623 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:55.395 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
  PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
  PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
  PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -69,7 +69,7 @@ WHERE {
    FILTER(?gas < 100)
 } 
 
-21:18:12.628 [Thread-9] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:55.403 [Thread-9] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "year"
@@ -123,7 +123,7 @@ Projection
             Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents, anonymous)
             Var (name=maxOE)
 
-21:18:12.629 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:55.405 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(year,month,con,gas,NGL,oil,maxOE) :- ans2(-anon-1,NGL,con,gas,maxOE,month,oil,year)
 ans2(-anon-1,NGL,con,gas,maxOE,month,oil,year) :- ans4(-anon-1,NGL,con,gas,maxOE,month,oil,year), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 ans4(-anon-1,NGL,con,gas,maxOE,month,oil,year) :- ans8(-anon-1,NGL,con,gas,month,oil,year), ans9(-anon-1,maxOE)
@@ -142,57 +142,57 @@ ans33(-anon-1,NGL) :- http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL
 ans17(-anon-1,oil) :- http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)
 ans9(-anon-1,maxOE) :- http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE)
 
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:55.408 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(year,month,con,gas,NGL,oil,maxOE) :- http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month), http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas), http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil), http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:55.408 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:55.408 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(year,month,con,gas,NGL,oil,maxOE) :- http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month), http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas), http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil), http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([oil, year, month, maxOE, NGL, gas, con]) EXISTS [loop: {-anon-1}[http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)]]
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, month}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, maxOE}[http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, gas}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, con}[http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]] AND LOOP null
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))]
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.630 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, month}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, maxOE}[http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, gas}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, con}[http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedOil_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#productionYear_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#productionMonth_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedNGL_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedGas_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate_EXT IS []
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:55.408 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([oil, year, month, maxOE, NGL, gas, con]) EXISTS [loop: {-anon-1}[http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)]]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, month}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, maxOE}[http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, gas}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][], edge: {-anon-1, con}[http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]] AND LOOP null
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, oil}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, month}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, maxOE}[http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, gas}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, con}[http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1)][]
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedOil_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#productionYear_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#productionMonth_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedNGL_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedGas_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate_EXT IS []
+21:36:55.409 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(year,month,con,gas,NGL,oil,maxOE) :- LT(gas,http://www.w3.org/2001/XMLSchema#integer(100)), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil), http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month), http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE), http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas), http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)
 CC DEFS
 null
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 3.473 s)
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 2.786 s)
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(year,month,con,gas,NGL,oil,maxOE) :- LT(gas,http://www.w3.org/2001/XMLSchema#integer(100)), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,oil), http://sws.ifi.uio.no/vocab/npd-v2#FieldMonthlyProduction(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,month), http://sws.ifi.uio.no/vocab/npd-v2#producedOilEquivalents(-anon-1,maxOE), http://sws.ifi.uio.no/vocab/npd-v2#producedNGL(-anon-1,NGL), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,gas), http://sws.ifi.uio.no/vocab/npd-v2#producedCondensate(-anon-1,con)
 
-21:18:12.631 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:12.632 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_3),http://www.w3.org/2001/XMLSchema#integer(t3_3),http://www.w3.org/2001/XMLSchema#decimal(t7_3),http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#decimal(t6_3),http://www.w3.org/2001/XMLSchema#decimal(t4_3),http://www.w3.org/2001/XMLSchema#decimal(t8_3)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#integer(100)), field_production_monthly(t1_3,t2_3,t3_3,t4_3,t5_3,t6_3,t7_3,t8_3,t9_3,t10_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t4_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t8_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t6_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t5_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t7_3)
 
-21:18:12.632 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_3),http://www.w3.org/2001/XMLSchema#integer(t3_3),http://www.w3.org/2001/XMLSchema#decimal(t7_3),http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#decimal(t6_3),http://www.w3.org/2001/XMLSchema#decimal(t4_3),http://www.w3.org/2001/XMLSchema#decimal(t8_3)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#integer(100)), field_production_monthly(t1_3,t2_3,t3_3,t4_3,t5_3,t6_3,t7_3,t8_3,t9_3,t10_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t4_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t8_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t6_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t5_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t7_3)
 
-21:18:12.632 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_3),http://www.w3.org/2001/XMLSchema#integer(t3_3),http://www.w3.org/2001/XMLSchema#decimal(t7_3),http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#decimal(t6_3),http://www.w3.org/2001/XMLSchema#decimal(t4_3),http://www.w3.org/2001/XMLSchema#decimal(t8_3)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t5_3),http://www.w3.org/2001/XMLSchema#integer(100)), field_production_monthly(t1_3,t2_3,t3_3,t4_3,t5_3,t6_3,t7_3,t8_3,t9_3,t10_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t4_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t8_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t6_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t5_3), IS_NOT_NULL(t10_3), IS_NOT_NULL(t2_3), IS_NOT_NULL(t3_3), IS_NOT_NULL(t7_3)
 
-21:18:12.632 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:12.632 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:12.633 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:55.410 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:55.411 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT 
    4 AS "yearQuestType", NULL AS "yearLang", CAST(QVIEW1.`prfYear` AS CHAR(8000) CHARACTER SET utf8) AS `year`, 
    4 AS "monthQuestType", NULL AS "monthLang", CAST(QVIEW1.`prfMonth` AS CHAR(8000) CHARACTER SET utf8) AS `month`, 
@@ -213,8 +213,8 @@ QVIEW1.`prfPrdOeNetMillSm3` IS NOT NULL AND
 QVIEW1.`prfPrdNGLNetMillSm3` IS NOT NULL AND
 QVIEW1.`prfPrdGasNetBillSm3` IS NOT NULL AND
 QVIEW1.`prfPrdCondensateNetMillSm3` IS NOT NULL
-21:18:12.633 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:12.801 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:55.411 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:55.532 [Thread-9] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 "1979"^^xsd:integer, "5"^^xsd:integer, "0.000000"^^xsd:decimal, "0.007680"^^xsd:decimal, "0.000330"^^xsd:decimal, "0.004170"^^xsd:decimal, "0.012180"^^xsd:decimal, 
 "1979"^^xsd:integer, "6"^^xsd:integer, "0.000000"^^xsd:decimal, "0.020900"^^xsd:decimal, "0.000940"^^xsd:decimal, "0.011640"^^xsd:decimal, "0.033470"^^xsd:decimal, 

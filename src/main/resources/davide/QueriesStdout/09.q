@@ -28,7 +28,7 @@ FILTER (?id > 400000)
 ORDER BY ?facility
 
 
-21:18:13.033 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:55.807 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -59,7 +59,7 @@ FILTER (?id > 400000)
 ORDER BY ?facility
 
 
-21:18:13.036 [Thread-10] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:55.810 [Thread-10] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "facility"
@@ -92,7 +92,7 @@ Projection
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#idNPD-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#idNPD, anonymous)
                Var (name=id)
 
-21:18:13.036 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:55.811 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(facility,country,id) :- ans2(-anon-1,country,facility,id)
 ans2(-anon-1,country,facility,id) :- ans4(-anon-1,country,facility,id), GT(id,http://www.w3.org/2001/XMLSchema#integer(400000))
 ans4(-anon-1,country,facility,id) :- ans8(-anon-1,country,facility), ans9(-anon-1,id)
@@ -103,39 +103,39 @@ ans33(-anon-1,facility) :- http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facil
 ans17(-anon-1,country) :- http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)
 ans9(-anon-1,id) :- http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)
 
-21:18:13.037 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(facility,country,id) :- http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility), http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country), http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id), GT(id,http://www.w3.org/2001/XMLSchema#integer(400000))
 
-21:18:13.038 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:13.038 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(facility,country,id) :- http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility), http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country), http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id), GT(id,http://www.w3.org/2001/XMLSchema#integer(400000))
 
-21:18:13.038 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:13.038 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([country, facility, id]) EXISTS [loop: {-anon-1}[http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)]]
-21:18:13.038 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][], edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][], edge: {-anon-1, id}[http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]] AND LOOP null
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(id,http://www.w3.org/2001/XMLSchema#integer(400000))]
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
-21:18:13.039 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, id}[http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry_EXT IS []
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#idNPD_EXT IS []
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([country, facility, id]) EXISTS [loop: {-anon-1}[http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)]]
+21:36:55.813 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][], edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][], edge: {-anon-1, id}[http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]] AND LOOP null
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(id,http://www.w3.org/2001/XMLSchema#integer(400000))]
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, country}[http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, facility}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
+21:36:55.814 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, id}[http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)][http://sws.ifi.uio.no/vocab/npd-v2#Facility(-anon-1)][]
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessReasonerLite - http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country) IS MORE SPECIFIC (2-1) THAN 
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry_EXT IS []
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#idNPD_EXT IS []
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(facility,country,id) :- GT(id,http://www.w3.org/2001/XMLSchema#integer(400000)), http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility), http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)
 CC DEFS
 null
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.002 s (total 3.475 s)
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.002 s (total 2.788 s)
+21:36:55.815 [Thread-10] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(facility,country,id) :- GT(id,http://www.w3.org/2001/XMLSchema#integer(400000)), http://sws.ifi.uio.no/vocab/npd-v2#registeredInCountry(-anon-1,country), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,facility), http://sws.ifi.uio.no/vocab/npd-v2#idNPD(-anon-1,id)
 
-21:18:13.040 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:13.060 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:55.816 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:55.830 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_operator_hst(t1_44,t2_44,t3_44,t4_44,t7_10,t6_44,t7_44), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_owner_hst(t1_41,t2_41,t3_41,t4_41,t5_41,t7_10,t7_41,t8_41), IS_NOT_NULL(t7_10)
@@ -287,7 +287,7 @@ ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.or
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), tuf_owner_hst(t1_1007,t2_1007,t3_1007,t4_1007,t5_1007,t7_1,t7_1007,t8_1007), IS_NOT_NULL(t7_1)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), facility_fixed(t1_1005,t2_1005,t3_1005,t4_1005,t5_1005,t6_1005,t7_1005,t8_1005,t9_1005,t10_1005,t11_1005,t12_1005,t13_1005,t14_1005,t15_1005,t16_1005,t17_1005,t18_1005,t19_1005,t20_1005,t21_1005,t22_1005,t23_1005,t7_1,t25_1005,t26_1005), IS_NOT_NULL(t7_1)
 
-21:18:13.061 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:55.831 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_operator_hst(t1_44,t2_44,t3_44,t4_44,t7_10,t6_44,t7_44), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_owner_hst(t1_41,t2_41,t3_41,t4_41,t5_41,t7_10,t7_41,t8_41), IS_NOT_NULL(t7_10)
@@ -439,7 +439,7 @@ ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.or
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), tuf_owner_hst(t1_1007,t2_1007,t3_1007,t4_1007,t5_1007,t7_1,t7_1007,t8_1007), IS_NOT_NULL(t7_1)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), facility_fixed(t1_1005,t2_1005,t3_1005,t4_1005,t5_1005,t6_1005,t7_1005,t8_1005,t9_1005,t10_1005,t11_1005,t12_1005,t13_1005,t14_1005,t15_1005,t16_1005,t17_1005,t18_1005,t19_1005,t20_1005,t21_1005,t22_1005,t23_1005,t7_1,t25_1005,t26_1005), IS_NOT_NULL(t7_1)
 
-21:18:13.062 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:55.832 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_operator_hst(t1_44,t2_44,t3_44,t4_44,t7_10,t6_44,t7_44), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), IS_NOT_NULL(t7_10)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_10),URI("http://dbpedia.org/resource/Singapore"),http://www.w3.org/2001/XMLSchema#integer(t7_10)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_10),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_10,t2_10,t3_10,t4_10,"Singapore",t6_10,t7_10,t8_10,t9_10,t10_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t7_10), IS_NOT_NULL(t1_10), tuf_owner_hst(t1_41,t2_41,t3_41,t4_41,t5_41,t7_10,t7_41,t8_41), IS_NOT_NULL(t7_10)
@@ -591,9 +591,9 @@ ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.or
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), tuf_owner_hst(t1_1007,t2_1007,t3_1007,t4_1007,t5_1007,t7_1,t7_1007,t8_1007), IS_NOT_NULL(t7_1)
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_924),URI("http://dbpedia.org/resource/Denmark"),http://www.w3.org/2001/XMLSchema#integer(t7_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t7_1),http://www.w3.org/2001/XMLSchema#integer(400000)), facility_moveable(t1_1,t2_1,t3_1,t4_1,"Denmark",t6_1,t7_1,t8_1,t9_1,t10_1), IS_NOT_NULL(t7_1), tuf_operator_hst(t1_924,t2_924,t3_924,t4_924,t7_1,t6_924,t7_924), IS_NOT_NULL(t7_1), IS_NOT_NULL(t1_924), facility_fixed(t1_1005,t2_1005,t3_1005,t4_1005,t5_1005,t6_1005,t7_1005,t8_1005,t9_1005,t10_1005,t11_1005,t12_1005,t13_1005,t14_1005,t15_1005,t16_1005,t17_1005,t18_1005,t19_1005,t20_1005,t21_1005,t22_1005,t23_1005,t7_1,t25_1005,t26_1005), IS_NOT_NULL(t7_1)
 
-21:18:13.062 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:13.117 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:13.146 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:55.832 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:55.832 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:55.914 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT *
 FROM (
 SELECT 
@@ -2987,8 +2987,8 @@ QVIEW2.`tufName` IS NOT NULL AND
 ) SUB_QVIEW
 ORDER BY SUB_QVIEW.`facility`
 
-21:18:13.146 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:13.201 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:55.914 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:55.947 [Thread-10] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 "ACERGY FALCON", <http://dbpedia.org/resource/Norway>, "402507"^^xsd:integer, 
 "ARTEMIS ARCTIC", <http://dbpedia.org/resource/Norway>, "414880"^^xsd:integer, 

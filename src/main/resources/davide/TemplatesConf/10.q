@@ -1,1 +1,1 @@
-bsns_arr_area_operator baaOperatorDateUpdated
+wellbore_exploration_all wlbDateUpdated

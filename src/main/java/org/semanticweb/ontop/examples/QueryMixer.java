@@ -38,12 +38,14 @@ import basicDatatypes.Template;
 public class QueryMixer {
 	
 	private String jdbcConnector = "jdbc:mysql";
-	private String dbUrl = "10.7.20.39:3306/npd";
+	private static String dbUrl = "10.7.20.39:3306/npd";
 	private String username = "test";
 	private String passw = "ontop2014";
 	
-	final String owlfile = "src/main/resources/davide/npd-v2-ql_a.owl";
-	final String obdafile = "src/main/resources/davide/npd-v2-ql_a.obda";
+	public static boolean twRewriting = false;
+	
+	public static String owlfile = "src/main/resources/davide/npd-v2-ql_a.owl";
+	public static String obdafile = "src/main/resources/davide/npd-v2-ql_a.obda";
 	
 	private Map<String, Integer> resultSetPointer = new HashMap<String, Integer>();
 
@@ -82,9 +84,11 @@ public class QueryMixer {
 		 */
 		QuestPreferences preference = new QuestPreferences();
 		preference.setCurrentValueOf(QuestPreferences.ABOX_MODE, QuestConstants.VIRTUAL);
-//		preference.setCurrentValueOf(QuestPreferences.REFORMULATION_TECHNIQUE, QuestConstants.TW); TODO Tree witness ON
-//		preference.setCurrentValueOf(QuestPreferences.REWRITE, QuestConstants.TRUE);
-
+	
+		if( twRewriting ){
+			preference.setCurrentValueOf(QuestPreferences.REFORMULATION_TECHNIQUE, QuestConstants.TW);
+			preference.setCurrentValueOf(QuestPreferences.REWRITE, QuestConstants.TRUE);
+		}
 		/*
 		 * Create the instance of Quest OWL reasoner.
 		 */
@@ -186,16 +190,17 @@ public class QueryMixer {
 			
 			long end = System.currentTimeMillis() - wastedTime;
 			
-			Statistics.setTime("GLOBAL", "mix_time_"+j, end - start);
-			
-			statsWriter.write(Statistics.printStats());
-			statsWriter.flush();
+			Statistics.setTime("GLOBAL", "mix_time_"+j, end - start);	
 		}
+		statsWriter.write(Statistics.printStats());
+		statsWriter.flush();
 		statsWriter.close();
 	}
 
 	private void fillPlaceholders(Template sparqlQueryTemplate,
 			List<QualifiedName> qNames) {
+		
+		if(sparqlQueryTemplate.getNumPlaceholders() == 0) return;
 		
 		List<String> fillers = new ArrayList<String>();
 		
@@ -204,6 +209,7 @@ public class QueryMixer {
 			int pointer = 0;
 			if( resultSetPointer.containsKey(qN.toString()) ){
 				pointer = resultSetPointer.get(qN.toString());
+				resultSetPointer.put(qN.toString(), pointer + 1);
 			}
 			else{
 				resultSetPointer.put(qN.toString(), 1);
@@ -218,8 +224,17 @@ public class QueryMixer {
 				ResultSet rs = stmt.executeQuery();
 			
 				if ( !rs.next() ){
-					rs.first();
+					stmt.close();
+					query = "SELECT DISTINCT " + qN.getColName() + " FROM " 
+							+ qN.getTableName() + " LIMIT " + 0 + ", 1";
 					resultSetPointer.put(qN.toString(), 1);
+					
+					stmt = db.getPreparedStatement(query);
+					
+					rs = stmt.executeQuery();
+					if( !rs.next() ){
+						System.err.println("Problem");
+					}
 				}
 				fillers.add( rs.getString(qN.getColName()) );
 				
@@ -232,16 +247,41 @@ public class QueryMixer {
 		}
 	}
 	
+	public static void setDbUrl(String dbUrl){
+		QueryMixer.dbUrl = dbUrl;
+	}
+	
 
 	/**
 	 * Main client program
 	 */
 	public static void main(String[] args) {
 		
+		if( args.length != 5 ){
+			System.out.println("Usage: command dbName nMixes owlFile obdaFile twOn");
+			System.exit(1);
+		}
+		
+		System.out.println(args);
+		
+		String dbName = args[0];
+		int nMixes = Integer.parseInt(args[1]);
+		
+		String url = "10.7.20.39:3306/";
+		String dbUrl = url + dbName;
+		
+		QueryMixer.setDbUrl(dbUrl);
+		
+		owlfile = args[2];
+		obdafile = args[3];
+		
+		if(Boolean.parseBoolean(args[4]) == true){
+			twRewriting = true;
+		}
 		try {
 			QueryMixer qM = new QueryMixer();
 			
-			qM.runQueryMixesTest(5);
+			qM.runQueryMixesTest(nMixes);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

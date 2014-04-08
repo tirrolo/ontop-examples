@@ -29,7 +29,7 @@ WHERE {
 } 
 
 
-21:18:13.206 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:55.953 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -61,7 +61,7 @@ WHERE {
 } 
 
 
-21:18:13.215 [Thread-11] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:55.961 [Thread-11] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "year"
@@ -100,7 +100,7 @@ Projection
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#producedOil-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#producedOil, anonymous)
                Var (name=o)
 
-21:18:13.216 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:55.961 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(year,m,g,o) :- ans2(-anon-1,g,m,o,year)
 ans2(-anon-1,g,m,o,year) :- ans4(-anon-1,g,m,o,year), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6)))
 ans4(-anon-1,g,m,o,year) :- ans8(-anon-1,g,m,o,year), GT(year,http://www.w3.org/2001/XMLSchema#integer(1999))
@@ -112,49 +112,49 @@ ans65(-anon-1,m) :- http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m
 ans33(-anon-1,g) :- http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)
 ans17(-anon-1,o) :- http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o)
 
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(year,m,g,o) :- http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o), GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6)))
 
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(year,m,g,o) :- http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o), GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6)))
 
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([year, m, o, g]) EXISTS [loop: {-anon-1}[]]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][], edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][], edge: {-anon-1, o}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o)][][], edge: {-anon-1, g}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)][][]] AND LOOP null
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6)))]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, o}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o)][][]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, g}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)][][]
-21:18:13.217 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([year, m, o, g]) EXISTS [loop: {-anon-1}[]]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][], edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][], edge: {-anon-1, o}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o)][][], edge: {-anon-1, g}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)][][]] AND LOOP null
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6)))]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, year}[http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year)][][]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, m}[http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m)][][]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, o}[http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o)][][]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, g}[http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)][][]
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(year,m,g,o) :- GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6))), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)
 CC DEFS
 null
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.000 s (total 3.475 s)
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.000 s (total 2.788 s)
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(year,m,g,o) :- GT(year,http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(m,http://www.w3.org/2001/XMLSchema#integer(1)),LTE(m,http://www.w3.org/2001/XMLSchema#integer(6))), http://sws.ifi.uio.no/vocab/npd-v2#productionYear(-anon-1,year), http://sws.ifi.uio.no/vocab/npd-v2#productionMonth(-anon-1,m), http://sws.ifi.uio.no/vocab/npd-v2#producedOil(-anon-1,o), http://sws.ifi.uio.no/vocab/npd-v2#producedGas(-anon-1,g)
 
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:55.962 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:55.963 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#decimal(t5_5),http://www.w3.org/2001/XMLSchema#decimal(t4_5)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(1)),LTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(6))), field_production_monthly(t1_5,t2_5,t3_5,t4_5,t5_5,t6_5,t7_5,t8_5,t9_5,t10_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t4_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t5_5)
 ans1(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#decimal(t4_1),http://www.w3.org/2001/XMLSchema#decimal(t3_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(1)),LTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(6))), field_production_totalt_NCS_month(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t4_1)
 
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:55.963 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#decimal(t5_5),http://www.w3.org/2001/XMLSchema#decimal(t4_5)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(1)),LTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(6))), field_production_monthly(t1_5,t2_5,t3_5,t4_5,t5_5,t6_5,t7_5,t8_5,t9_5,t10_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t4_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t5_5)
 ans1(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#decimal(t4_1),http://www.w3.org/2001/XMLSchema#decimal(t3_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(GTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(1)),LTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(6))), field_production_totalt_NCS_month(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t4_1)
 
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:55.963 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#decimal(t5_5),http://www.w3.org/2001/XMLSchema#decimal(t4_5)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t2_5),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(LTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(6)),GTE(http://www.w3.org/2001/XMLSchema#integer(t3_5),http://www.w3.org/2001/XMLSchema#integer(1))), field_production_monthly(t1_5,t2_5,t3_5,t4_5,t5_5,t6_5,t7_5,t8_5,t9_5,t10_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t4_5), IS_NOT_NULL(t10_5), IS_NOT_NULL(t2_5), IS_NOT_NULL(t3_5), IS_NOT_NULL(t5_5)
 ans1(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#decimal(t4_1),http://www.w3.org/2001/XMLSchema#decimal(t3_1)) :- GT(http://www.w3.org/2001/XMLSchema#integer(t1_1),http://www.w3.org/2001/XMLSchema#integer(1999)), AND(LTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(6)),GTE(http://www.w3.org/2001/XMLSchema#integer(t2_1),http://www.w3.org/2001/XMLSchema#integer(1))), field_production_totalt_NCS_month(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t3_1), IS_NOT_NULL(t1_1), IS_NOT_NULL(t2_1), IS_NOT_NULL(t4_1)
 
-21:18:13.218 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:13.219 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:13.219 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:55.963 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:55.963 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:55.964 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT 
    4 AS "yearQuestType", NULL AS "yearLang", CAST(QVIEW1.`prfYear` AS CHAR(8000) CHARACTER SET utf8) AS `year`, 
    4 AS "mQuestType", NULL AS "mLang", CAST(QVIEW1.`prfMonth` AS CHAR(8000) CHARACTER SET utf8) AS `m`, 
@@ -186,8 +186,8 @@ QVIEW1.`prfYear` IS NOT NULL AND
 QVIEW1.`prfMonth` IS NOT NULL AND
 QVIEW1.`prfPrdOilNetMillSm3` IS NOT NULL AND
 QVIEW1.`prfPrdGasNetBillSm3` IS NOT NULL
-21:18:13.219 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:13.271 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:55.964 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:55.997 [Thread-11] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 "2000"^^xsd:integer, "1"^^xsd:integer, "0.000000"^^xsd:decimal, "0.164220"^^xsd:decimal, 
 "2000"^^xsd:integer, "2"^^xsd:integer, "0.000000"^^xsd:decimal, "0.106270"^^xsd:decimal, 

@@ -12,10 +12,14 @@ import it.unibz.krdb.obda.owlrefplatform.owlapi3.QuestOWLConnection;
 import it.unibz.krdb.obda.owlrefplatform.owlapi3.QuestOWLFactory;
 import it.unibz.krdb.obda.owlrefplatform.owlapi3.QuestOWLResultSet;
 import it.unibz.krdb.obda.owlrefplatform.owlapi3.QuestOWLStatement;
+import it.unibz.krdb.sql.api.VisitedQuery;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLObject;
@@ -59,8 +63,8 @@ public class InteractiveExample {
 		 */
 		QuestPreferences preference = new QuestPreferences();
 		preference.setCurrentValueOf(QuestPreferences.ABOX_MODE, QuestConstants.VIRTUAL);
-		preference.setCurrentValueOf(QuestPreferences.REFORMULATION_TECHNIQUE, QuestConstants.TW);
-		preference.setCurrentValueOf(QuestPreferences.REWRITE, QuestConstants.TRUE);
+//		preference.setCurrentValueOf(QuestPreferences.REFORMULATION_TECHNIQUE, QuestConstants.TW);
+//		preference.setCurrentValueOf(QuestPreferences.REWRITE, QuestConstants.TRUE);
 
 		/*
 		 * Create the instance of Quest OWL reasoner.
@@ -70,6 +74,10 @@ public class InteractiveExample {
 		factory.setPreferenceHolder(preference);
 		QuestOWL reasoner = (QuestOWL) factory.createReasoner(ontology, new SimpleConfiguration());
 
+		
+		String outFile = "src/main/resources/davide/QueriesStdout/prova";
+		
+		
 		/*
 		 * Prepare the data connection for querying.
 		 */
@@ -92,21 +100,26 @@ public class InteractiveExample {
 				Statistics.setLabel(label);
 				QuestOWLResultSet rs = st.executeTuple(sparqlQuery);
 				int columnSize = rs.getColumCount();
+				int cnt = 0;
 				while (rs.nextRow()) {
 					for (int idx = 1; idx <= columnSize; idx++) {
 						OWLObject binding = rs.getOWLObject(idx);
-						System.out.print(binding.toString() + ", ");
+//						System.out.print(binding.toString() + ", ");
 					}
-					System.out.print("\n");
+					cnt++;
+					//System.out.print("\n");
 				}
+				Statistics.setInt("GLOBAL", "n_triples", cnt);
 				rs.close();
+				System.out.println("Results count: " + cnt);
+				
 				
 			/*
 			 * Print the query summary
 			 */
 				QuestOWLStatement qst = (QuestOWLStatement) st;
 				String sqlQuery = qst.getUnfolding(sparqlQuery);
-				
+								
 				System.out.println();
 				System.out.println("The input SPARQL query:");
 				System.out.println("=======================");

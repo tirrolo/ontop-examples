@@ -31,7 +31,7 @@ WHERE {
 
 } ORDER BY DESC(?OE)
 
-21:17:58.573 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:27.941 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -65,7 +65,7 @@ WHERE {
 
 } ORDER BY DESC(?OE)
 
-21:17:58.577 [Thread-2] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:27.953 [Thread-2] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "fr"
@@ -111,7 +111,7 @@ Projection
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents, anonymous)
                Var (name=OE)
 
-21:17:58.577 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:27.954 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(fr,OE,oil,gas,NGL,con) :- ans2(NGL,OE,con,fr,gas,oil)
 ans2(NGL,OE,con,fr,gas,oil) :- ans4(NGL,OE,con,fr,gas,oil), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 ans4(NGL,OE,con,fr,gas,oil) :- ans8(NGL,con,fr,gas,oil), ans9(OE,fr)
@@ -126,50 +126,50 @@ ans33(NGL,fr) :- http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL)
 ans17(fr,oil) :- http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil)
 ans9(OE,fr) :- http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE)
 
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:27.955 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(fr,OE,oil,gas,NGL,con) :- http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr), http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con), http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas), http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL), http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil), http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:27.955 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:27.955 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(fr,OE,oil,gas,NGL,con) :- http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr), http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con), http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas), http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL), http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil), http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE), LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))
 
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([fr, OE, oil, NGL, gas, con]) EXISTS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {fr, OE}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, oil}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, gas}[http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, con}[http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]] AND LOOP null
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, OE}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, oil}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, gas}[http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, con}[http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingOil_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingGas_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate_EXT IS []
-21:17:58.579 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:27.955 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([fr, OE, oil, NGL, gas, con]) EXISTS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {fr, OE}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, oil}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, gas}[http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][], edge: {fr, con}[http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]] AND LOOP null
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [LT(gas,http://www.w3.org/2001/XMLSchema#integer(100))]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, OE}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, oil}[http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, NGL}[http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, gas}[http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {fr, con}[http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)][http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr)][]
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingOil_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingGas_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate_EXT IS []
+21:36:27.956 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(fr,OE,oil,gas,NGL,con) :- LT(gas,http://www.w3.org/2001/XMLSchema#integer(100)), http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE), http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr), http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil), http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL), http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas), http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)
 CC DEFS
 null
-21:17:58.580 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 3.433 s)
-21:17:58.580 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:27.957 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 2.734 s)
+21:36:27.957 [Thread-2] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(fr,OE,oil,gas,NGL,con) :- LT(gas,http://www.w3.org/2001/XMLSchema#integer(100)), http://sws.ifi.uio.no/vocab/npd-v2#remainingOilEquivalents(fr,OE), http://sws.ifi.uio.no/vocab/npd-v2#FieldReserve(fr), http://sws.ifi.uio.no/vocab/npd-v2#remainingOil(fr,oil), http://sws.ifi.uio.no/vocab/npd-v2#remainingNGL(fr,NGL), http://sws.ifi.uio.no/vocab/npd-v2#remainingGas(fr,gas), http://sws.ifi.uio.no/vocab/npd-v2#remainingCondensate(fr,con)
 
-21:17:58.580 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:17:58.580 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:27.957 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:27.958 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/field/{}/reserve",t13_2),http://www.w3.org/2001/XMLSchema#decimal(t11_2),http://www.w3.org/2001/XMLSchema#decimal(t7_2),http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#decimal(t9_2),http://www.w3.org/2001/XMLSchema#decimal(t10_2)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#integer(100)), field_reserves(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2,t9_2,t10_2,t11_2,t12_2,t13_2,t14_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t11_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t7_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t9_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t8_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t10_2)
 
-21:17:58.580 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:27.958 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/field/{}/reserve",t13_2),http://www.w3.org/2001/XMLSchema#decimal(t11_2),http://www.w3.org/2001/XMLSchema#decimal(t7_2),http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#decimal(t9_2),http://www.w3.org/2001/XMLSchema#decimal(t10_2)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#integer(100)), field_reserves(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2,t9_2,t10_2,t11_2,t12_2,t13_2,t14_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t11_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t7_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t9_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t8_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t10_2)
 
-21:17:58.581 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:27.958 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(URI("http://sws.ifi.uio.no/data/npd-v2/field/{}/reserve",t13_2),http://www.w3.org/2001/XMLSchema#decimal(t11_2),http://www.w3.org/2001/XMLSchema#decimal(t7_2),http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#decimal(t9_2),http://www.w3.org/2001/XMLSchema#decimal(t10_2)) :- LT(http://www.w3.org/2001/XMLSchema#decimal(t8_2),http://www.w3.org/2001/XMLSchema#integer(100)), field_reserves(t1_2,t2_2,t3_2,t4_2,t5_2,t6_2,t7_2,t8_2,t9_2,t10_2,t11_2,t12_2,t13_2,t14_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t11_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t7_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t9_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t8_2), IS_NOT_NULL(t13_2), IS_NOT_NULL(t10_2)
 
-21:17:58.581 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:17:58.581 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:17:58.583 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:27.958 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:27.958 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:27.959 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT *
 FROM (
 SELECT 
@@ -192,8 +192,8 @@ QVIEW1.`fldRemainingCondensate` IS NOT NULL
 ) SUB_QVIEW
 ORDER BY SUB_QVIEW.`OE`
 
-21:17:58.584 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:17:58.592 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:27.959 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:27.964 [Thread-2] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 <http://sws.ifi.uio.no/data/npd-v2/field/43437/reserve>, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, 
 <http://sws.ifi.uio.no/data/npd-v2/field/43444/reserve>, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, "0.000000"^^xsd:decimal, 

@@ -27,7 +27,7 @@ WHERE {
   FILTER(?dateValidTo > '1979-12-31T00:00:00')
 } ORDER BY ?licence
 
-21:18:11.269 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
+21:36:54.129 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Executing query: 
 PREFIX : <http://sws.ifi.uio.no/vocab/npd-v2#>
 PREFIX isc: <http://resource.geosciml.org/classifier/ics/ischart/>
 PREFIX nlxv: <http://sws.ifi.uio.no/vocab/norlex#>
@@ -57,7 +57,7 @@ WHERE {
   FILTER(?dateValidTo > '1979-12-31T00:00:00')
 } ORDER BY ?licence
 
-21:18:11.276 [Thread-5] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+21:36:54.133 [Thread-5] DEBUG i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
 Projection
    ProjectionElemList
       ProjectionElem "licence"
@@ -90,7 +90,7 @@ Projection
                Var (name=-const-http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo-uri, value=http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo, anonymous)
                Var (name=dateValidTo)
 
-21:18:11.277 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
+21:36:54.133 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Translated query: 
 ans1(licence,dateGranted,dateValidTo) :- ans2(-anon-1,dateGranted,dateValidTo,licence)
 ans2(-anon-1,dateGranted,dateValidTo,licence) :- ans4(-anon-1,dateGranted,dateValidTo,licence), GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 ans4(-anon-1,dateGranted,dateValidTo,licence) :- ans8(-anon-1,dateGranted,licence), ans9(-anon-1,dateValidTo)
@@ -101,47 +101,47 @@ ans33(-anon-1,licence) :- http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licenc
 ans17(-anon-1,dateGranted) :- http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)
 ans9(-anon-1,dateValidTo) :- http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)
 
-21:18:11.279 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Flattened query: 
 ans1(licence,dateGranted,dateValidTo) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo), GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:11.279 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Normalized program: 
 ans1(licence,dateGranted,dateValidTo) :- http://sws.ifi.uio.no/vocab/npd-v2#ProductionLicence(-anon-1), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo), GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))
 
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([dateGranted, dateValidTo, licence]) EXISTS [loop: {-anon-1}[]]
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][], edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][], edge: {-anon-1, licence}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)][][]] AND LOOP null
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][]
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][]
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licence}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)][][]
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted_EXT IS []
-21:18:11.280 [Thread-5] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo_EXT IS []
-21:18:11.281 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - CONNECTED COMPONENT ([dateGranted, dateValidTo, licence]) EXISTS [loop: {-anon-1}[]]
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      WITH EDGES [edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][], edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][], edge: {-anon-1, licence}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)][][]] AND LOOP null
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter -      NON-DL ATOMS [GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00"))]
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - QUANTIFIED VARIABLE -anon-1
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - EDGE edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][] HAS PROPERTY http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessSet - TREE WITNESSES FOUND: 0
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, dateGranted}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted)][][]
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, dateValidTo}[http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo)][][]
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - EDGE edge: {-anon-1, licence}[http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)][][]
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted_EXT IS []
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.ExtDatalogProgram - DP FOR http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo_EXT IS []
+21:36:54.134 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - REWRITTEN PROGRAM
 ans1(licence,dateGranted,dateValidTo) :- GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)
 CC DEFS
 null
-21:18:11.281 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.001 s (total 3.470 s)
-21:18:11.281 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Rewriting time: 0.000 s (total 2.783 s)
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.c.r.TreeWitnessRewriter - Final rewriting:
 ans1(licence,dateGranted,dateValidTo) :- GT(dateValidTo,http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceGranted(-anon-1,dateGranted), http://sws.ifi.uio.no/vocab/npd-v2#dateLicenceValidTo(-anon-1,dateValidTo), http://sws.ifi.uio.no/vocab/npd-v2#name(-anon-1,licence)
 
-21:18:11.281 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
-21:18:11.283 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_1),http://www.w3.org/2001/XMLSchema#dateTime(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t6_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t6_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1,t13_1,t14_1,t15_1), NEQ(t5_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t10_1), IS_NOT_NULL(t5_1), NEQ(t6_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t10_1), IS_NOT_NULL(t6_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t1_1)
 
-21:18:11.283 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - After target rules removed: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_1),http://www.w3.org/2001/XMLSchema#dateTime(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t6_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t6_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1,t13_1,t14_1,t15_1), NEQ(t5_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t10_1), IS_NOT_NULL(t5_1), NEQ(t6_1,"9999-12-31T00:00:00"), IS_NOT_NULL(t10_1), IS_NOT_NULL(t6_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t1_1)
 
-21:18:11.283 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
 ans1(http://www.w3.org/2000/01/rdf-schema#Literal(t1_1),http://www.w3.org/2001/XMLSchema#dateTime(t5_1),http://www.w3.org/2001/XMLSchema#dateTime(t6_1)) :- GT(http://www.w3.org/2001/XMLSchema#dateTime(t6_1),http://www.w3.org/2001/XMLSchema#string("1979-12-31T00:00:00")), licence(t1_1,t2_1,t3_1,t4_1,t5_1,t6_1,t7_1,t8_1,t9_1,t10_1,t11_1,t12_1,t13_1,t14_1,t15_1), NEQ("9999-12-31T00:00:00",t5_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t5_1), NEQ("9999-12-31T00:00:00",t6_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t6_1), IS_NOT_NULL(t10_1), IS_NOT_NULL(t1_1)
 
-21:18:11.283 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
-21:18:11.284 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
-21:18:11.285 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+21:36:54.135 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+21:36:54.136 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Resulting sql: 
 SELECT *
 FROM (
 SELECT 
@@ -161,8 +161,8 @@ QVIEW1.`prlName` IS NOT NULL
 ) SUB_QVIEW
 ORDER BY SUB_QVIEW.`licence`
 
-21:18:11.285 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
-21:18:11.294 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
+21:36:54.136 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Executing the query and get the result...
+21:36:54.144 [Thread-5] DEBUG i.u.k.o.o.core.QuestStatement - Execution finished.
 
 "001", "1965-09-01T00:00:00.0"^^xsd:dateTime, "2030-03-01T00:00:00.0"^^xsd:dateTime, 
 "001 B", "1999-12-15T00:00:00.0"^^xsd:dateTime, "2013-12-17T00:00:00.0"^^xsd:dateTime, 
